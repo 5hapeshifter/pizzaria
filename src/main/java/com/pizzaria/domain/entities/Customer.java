@@ -19,11 +19,7 @@ public class Customer {
     @OneToMany(cascade =
             CascadeType.ALL,
             orphanRemoval= true,
-            fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "customer_addresses",
-            joinColumns = @JoinColumn(name = "customer_id"),
-            inverseJoinColumns = @JoinColumn(name = "addresses_id"))
+            fetch = FetchType.EAGER, mappedBy = "customer")
     private List<Address> addresses = new ArrayList<>();
 
     @ElementCollection(targetClass = String.class)

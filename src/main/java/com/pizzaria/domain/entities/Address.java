@@ -19,7 +19,6 @@ public class Address {
     private String complement;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     private Address() {
