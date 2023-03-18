@@ -1,10 +1,18 @@
 package com.pizzaria.domain.dtos;
 
+import javax.validation.constraints.NotEmpty;
+
 public class AddressDTO {
 
     private Long id;
+    @NotEmpty(message = "You must enter a street.")
+//    @Valid
     private String street;
+    @NotEmpty(message = "You must enter a number.")
+//    @Valid
     private String number;
+    @NotEmpty(message = "You must enter a neighborhood.")
+//    @Valid
     private String neighborhood;
     private String complement;
 

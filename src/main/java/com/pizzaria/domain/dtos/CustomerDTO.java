@@ -1,13 +1,20 @@
 package com.pizzaria.domain.dtos;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDTO {
 
     private Long id;
+    @NotEmpty(message = "You must enter a name.")
     private String name;
+    @Size(min = 1, max = 10, message = "You must enter at least 1 address.")
+    @Valid
     private List<AddressDTO> addressDTOS;
+    @Size(min = 1, max = 5, message = "you must enter at least 1 phone number.")
     private List<String> phoneNumbers;
 
     private CustomerDTO() {

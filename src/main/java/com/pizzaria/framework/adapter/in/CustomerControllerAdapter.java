@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/pizzaria")
 public class CustomerControllerAdapter {
@@ -22,7 +24,7 @@ public class CustomerControllerAdapter {
     private TransformCustomer transformCustomer;
 
     @PostMapping
-    public ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customerDTO) {
+    public ResponseEntity<CustomerDTO> createCustomer(@RequestBody @Valid CustomerDTO customerDTO) {
         Customer customer = customerPortIn.createCustomer(customerDTO);
         CustomerDTO result = transformCustomer.transformDAOToCustomerDTO(customer);
         return ResponseEntity.ok().body(result);
